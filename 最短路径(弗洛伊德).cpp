@@ -8,7 +8,7 @@ void Floyd(vector<vector<int>>& graph, vector<vector<int>>& dist, vector<vector<
 		}
 	}
 	
-	for(int k = 0; k < len; ++k){
+	for(int k = 1; k < len; ++k){
 		for(int i = 0; i < len; ++i){
 			for(int j = 0; j < len; ++j){
 				if(dist[i][k] == INT_MAX || dist[k][j] == INT_MAX) continue;
