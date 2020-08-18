@@ -13,6 +13,7 @@ vector<int> Prim(vector<vector<int>>& graph)
 	//生成所有边
 	for(int k = 1; k < len; k++){
 		int index, min = INT_MAX;
+		//寻找最小的路径值
 		for(int i = 0; i < len; i++){
 			if(!visited[i] && dist[i] < min){
 				min = dist[i];
@@ -21,6 +22,7 @@ vector<int> Prim(vector<vector<int>>& graph)
 		}
 		visited[index] = true;
 		
+		//更新路径值列表 和 父节点列表
 		for(int i = 0; i < len; i++){
 			if(!visited[i] && dist[i] > graph[index][i]){
 				parent[i] = index;
@@ -31,6 +33,8 @@ vector<int> Prim(vector<vector<int>>& graph)
 	
 	return parent;
 }
+
+//打印结果
 void showPrim(vector<int>& parent)
 {
 	int len = parent.size();
