@@ -8,9 +8,9 @@ int beibao(vector<int>& value, vector<int>& weight, int limit)
 	
 	vector<int> dp(limit+1, 0);
 	for (int i = 1; i <= len; i++) {
-        for (int j = limit; j >= 1; j--) {
+        for (int j = limit; j >= 0; j--) {
             if (weight[i] <= j) 
-				dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
+				dp[j] = max(dp[j], dp[j - weight[i-1]] + value[i-1]);
         }
     }
 	
