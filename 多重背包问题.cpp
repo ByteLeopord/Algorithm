@@ -5,16 +5,16 @@
 int beibao(vector<int>& value, vector<int>& weight, int limit)
 {
 	int len = value.size();
-	
+
 	vector<vector<int>> dp(len+1, vector<int>(limit+1, 0));
 	for (int i = 1; i <= len; i++) {
-        for (int j = 1; j <= limit; j++) {
+		for (int j = 1; j <= limit; j++) {
 			for(int k = 0; k <= num[i-1]; k++){
-            	if (j - k*weight[i-1] >= 0) 
+				if (j - k*weight[i-1] >= 0) 
 					dp[i][j] = max(dp[i][j], dp[i-1][j - k*weight[i-1]] + k*value[i-1]);
 			}
-        }
-    }
-	
+		}
+	}
+
 	return dp[len][limit];
 }
